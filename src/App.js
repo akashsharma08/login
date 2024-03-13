@@ -1,18 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Welcome from '../src/components/Welcome.jsx';
-import Login from '../src/components/Login'; // Assuming you have a Login component
+// import './App.css'
+import Welcome from "./components/Welcome"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from 'react';
 
-const App = () => {
+function App() {
   return (
-    <Router basename="http://localhost:3000/">
-      <Switch>
-        <Route exact path="/home" component={Welcome} />
-        <Route path="/login" component={Login} />
-        {/* Add more routes as needed */}
-      </Switch>
-    </Router>
+    <div className="App flex justify-center items-center h-full">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/welcome" element={<Welcome/>}/>
+        </Routes>
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;
