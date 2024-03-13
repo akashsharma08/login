@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Welcome from '../src/components/Welcome.jsx';
+import Login from '../src/components/Login'; // Assuming you have a Login component
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router basename="http://localhost:3000/">
+      <Switch>
+        <Route exact path="/home" component={Welcome} />
+        <Route path="/login" component={Login} />
+        {/* Add more routes as needed */}
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
